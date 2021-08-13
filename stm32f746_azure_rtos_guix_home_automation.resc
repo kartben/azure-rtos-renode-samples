@@ -5,7 +5,7 @@ using sysbus
 $name?="STM32F746"
 mach create $name
 
-machine LoadPlatformDescription @https://github.com/kartben/azure-rtos-renode-samples/raw/master/stm32f7_discovery-bb.repl
+machine LoadPlatformDescription @platforms/boards/stm32f7_discovery-bb.repl
 # machine StartGdbServer 3333
 
 showAnalyzer usart1

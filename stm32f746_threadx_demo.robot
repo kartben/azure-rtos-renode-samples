@@ -15,7 +15,7 @@ Should Start ThreadX demo
     [Tags]                    azure-rtos  threadx
 
     Execute Command           set bin @${CURDIR}/stm32f746_threadx_demo.elf
-    Execute Command           include @scripts/single-node/stm32f746_azure_rtos.resc
+    Execute Command           include @${CURDIR}/stm32f746_azure_rtos_threadx_demo.resc
 
     Execute Command           showAnalyzer ${UART}
     Create Terminal Tester    ${UART}
@@ -32,7 +32,7 @@ Should Check ThreadX timer accuracy
     Set Test Variable         ${REPEATS}                    20
 
     Execute Command           set bin @${CURDIR}/stm32f746_threadx_demo.elf
-    Execute Command           include @scripts/single-node/stm32f746_azure_rtos.resc
+    Execute Command           include @${CURDIR}/stm32f746_azure_rtos_threadx_demo.resc
 
     Execute Command           showAnalyzer ${UART}
     Create Terminal Tester    ${UART}
@@ -43,15 +43,16 @@ Should Check ThreadX timer accuracy
     ${MIN_SLEEP_TIME}=  Evaluate  ${SLEEP_TIME} - ${SLEEP_TOLERANCE}
     ${MAX_SLEEP_TIME}=  Evaluate  ${SLEEP_TIME} + ${SLEEP_TOLERANCE}
 
-    :FOR  ${i}  IN RANGE  0  ${REPEATS}
-    \     ${r}        Wait For Line On Uart     thread 0 events sent    treatAsRegex=true
-    \                 Append To List            ${l}  ${r.timestamp}
+    FOR  ${i}  IN RANGE  0  ${REPEATS}
+         ${r}        Wait For Line On Uart     thread 0 events sent    treatAsRegex=true
+                     Append To List            ${l}  ${r.timestamp}
+    END
 
-    :FOR  ${i}  IN RANGE  1  ${REPEATS}
-    \     ${i1}=  Get From List   ${l}                       ${i - 1}
-    \     ${i2}=  Get From List   ${l}                       ${i}
-    \     ${d}=   Evaluate        ${i2} - ${i1}
-    \             Should Be True  ${d} >= ${MIN_SLEEP_TIME}      Too short sleep detected between entries ${i} and ${i + 1}: expected ${SLEEP_TIME}, got ${d}
-    \             Should Be True  ${d} <= ${MAX_SLEEP_TIME}      Too long sleep detected between entires ${i} and ${i + 1}: expected ${SLEEP_TIME}, got ${d}
-
+    FOR  ${i}  IN RANGE  1  ${REPEATS}
+         ${i1}=  Get From List   ${l}                       ${i - 1}
+         ${i2}=  Get From List   ${l}                       ${i}
+         ${d}=   Evaluate        ${i2} - ${i1}
+                 Should Be True  ${d} >= ${MIN_SLEEP_TIME}      Too short sleep detected between entries ${i} and ${i + 1}: expected ${SLEEP_TIME}, got ${d}
+                 Should Be True  ${d} <= ${MAX_SLEEP_TIME}      Too long sleep detected between entires ${i} and ${i + 1}: expected ${SLEEP_TIME}, got ${d}
+    END
     

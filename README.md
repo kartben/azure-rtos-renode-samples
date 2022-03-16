@@ -28,4 +28,14 @@ The application binary will automatically be downloaded and run, and you will be
 
 ## Using Robot Framework for testing
 
-TBD.
+\:warning: As opposed to the samples above which can be automagically downloaded by Renode the first time you run them, you will need to locally clone this repository to run the following testing example.
+
+```
+renode-test stm32f746_threadx_demo.robot
+```
+
+The [test script](stm32f746_threadx_demo.robot) will run the Azure RTOS ThreadX demo and evaluate a few assertions to make sure it is working properly. For example, it will [check](stm32f746_threadx_demo.robot#L27-L57) if the RTOS scheduler works as it should, by checking the actual timers' intervals are accurate.
+
+Once the test script completes, a complete report (look for `report.html` in your current folder) is generated. 
+
+![Testing Azure RTOS ThreadX Demo using Renode Testing Framework](assets/renode-robot-framework-demo.png)

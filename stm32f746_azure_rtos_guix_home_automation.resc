@@ -16,7 +16,6 @@ cpu PerformanceInMips 462
 # Home automation GUIX binary
 $bin ?= @https://raw.githubusercontent.com/kartben/azure-rtos-renode-samples/master/sample_guix_home_automation.elf
 
-
 # we silence the MPU warnings in nvic
 logLevel 3 nvic
 
@@ -28,9 +27,6 @@ logLevel 3 i2c3
 
 # we silence the warnings regarding dma2d
 logLevel 3 dma2d
-
-# log LED activity
-logLevel -1 gpioPortI.LED1
 
 macro reset
 """

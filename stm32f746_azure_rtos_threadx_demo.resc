@@ -9,7 +9,6 @@ machine LoadPlatformDescription @platforms/boards/stm32f7_discovery-bb.repl
 # machine StartGdbServer 3333
 
 showAnalyzer usart1
-showAnalyzer ltdc
 
 cpu PerformanceInMips 462
 

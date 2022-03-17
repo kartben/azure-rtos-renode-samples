@@ -15,18 +15,11 @@ cpu PerformanceInMips 462
 # Home automation GUIX binary
 $bin ?= @https://raw.githubusercontent.com/kartben/azure-rtos-renode-samples/master/stm32f746_threadx_demo.elf
 
-
 # we silence the MPU warnings in nvic
 logLevel 3 nvic
 
 # we silence the warnings regarding tim6 since it's a basic timer and hence has lots of unsupported register fields compared to a normal timer
 logLevel 3 timer6
-
-# we silence the warnings regarding i2c3 (touchscreen) as some I2C_CR2 fields seem to be improperly supported
-logLevel 3 i2c3
-
-# we silence the warnings regarding dma2d
-logLevel 3 dma2d
 
 macro reset
 """

@@ -3,6 +3,7 @@
 This repository contains a few samples showcasing Azure RTOS-based applications simulated and/or tested using the Renode framework.
 
 > :warning: Support for real-time operating systems on Arm chips in Renode has been vastly improved since Renode 1.12 release.
+> 
 > **You will need to use a nightly build** until Renode 1.13 is officially released. You can download the latest nightly build at [https://dl.antmicro.com/projects/renode/builds/?P=*latest*](https://dl.antmicro.com/projects/renode/builds/?P=*latest*).
 
 

@@ -1,6 +1,10 @@
 # Tests for Azure RTOS apps emulated in the Renode framework
 
-This repostory contains a few samples showcasing Azure RTOS-based applications simulated and/or tested using the Renode framework.
+This repository contains a few samples showcasing Azure RTOS-based applications simulated and/or tested using the Renode framework.
+
+> :warning: Support for real-time operating systems on Arm chips in Renode has been vastly improved since Renode 1.12 release.
+> **You will need to use a nightly build** until Renode 1.13 is officially released. You can download the latest nightly build at [https://dl.antmicro.com/projects/renode/builds/?P=*latest*](https://dl.antmicro.com/projects/renode/builds/?P=*latest*).
+
 
 ## Azure RTOS ThreadX demo
 
@@ -28,7 +32,7 @@ The application binary will automatically be downloaded and run, and you will be
 
 ## Using Robot Framework for testing
 
-\:warning: As opposed to the samples above which can be automagically downloaded by Renode the first time you run them, you will need to locally clone this repository to run the following testing example.
+> :warning: As opposed to the samples above which can be automagically downloaded by Renode the first time you run them, you will need to locally clone this repository to run the following testing example.
 
 ```
 renode-test stm32f746_threadx_demo.robot

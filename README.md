@@ -29,7 +29,7 @@ s @https://raw.githubusercontent.com/kartben/azure-rtos-renode-samples/master/st
 
 The application binary will automatically be downloaded and run, and you will be able to interact with the demo application through the simulated LCD touchscreen. 
 
-![Azure RTOS GUIX Home Automation Demo running in Renode](assets/guix-demo.png)
+![Azure RTOS GUIX Home Automation Demo running in Renode](assets/guix-demo.gif)
 
 ## Using Robot Framework for testing
 
